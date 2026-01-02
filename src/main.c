@@ -59,7 +59,7 @@ static inline enum mofs05_errors loadArgs(int argc, char *argv[]) {
 		return MOFS05_ERROR_NONE;
 	}
 	
-	if (strcmp(argv[1], "l") == 0) {
+	if (strncmp(argv[1], "l", 1) == 0) {
 		if (argc < 3) {
 			return MOFS05_ERROR_ARGS_SMALL;
 		}
@@ -79,7 +79,7 @@ static inline enum mofs05_errors loadArgs(int argc, char *argv[]) {
 			printf("%s\n", mofs05.i[i].name);
 		}
 		return MOFS05_ERROR_NONE;
-	} else if (strcmp(argv[1], "n") == 0) {
+	} else if (strncmp(argv[1], "n", 1) == 0) {
 		if (argc < 4) {
 			return MOFS05_ERROR_ARGS_SMALL;
 		}
@@ -130,7 +130,7 @@ static inline enum mofs05_errors loadArgs(int argc, char *argv[]) {
 			MOFS05_PREFIX
 		);
 		return MOFS05_ERROR_NONE;
-	} else if (strcmp(argv[1], "s") == 0) {
+	} else if (strncmp(argv[1], "s", 1) == 0) {
 		if (argc < 3) {
 			return MOFS05_ERROR_ARGS_SMALL;
 		}
@@ -150,7 +150,7 @@ static inline enum mofs05_errors loadArgs(int argc, char *argv[]) {
 			printf("%u\n", mofs05.i[i].size);
 		}
 		return MOFS05_ERROR_NONE;
-	} else if (strcmp(argv[1], "x") == 0) {
+	} else if (strncmp(argv[1], "x", 1) == 0) {
 		if (argc < 4) {
 			return MOFS05_ERROR_ARGS_SMALL;
 		}
@@ -181,7 +181,7 @@ static inline enum mofs05_errors loadArgs(int argc, char *argv[]) {
 			);
 		}
 		return MOFS05_ERROR_NONE;
-	} else if (strcmp(argv[1], "X") == 0) {
+	} else if (strncmp(argv[1], "X", 1) == 0) {
 		if (argc < 3) {
 			return MOFS05_ERROR_ARGS_SMALL;
 		}
