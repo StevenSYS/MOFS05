@@ -1,5 +1,5 @@
 build*/
-src/mofs05_info.h
+src/internal/info.h
 
 # Executables
 *.exe
