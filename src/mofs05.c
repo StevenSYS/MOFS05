@@ -109,7 +109,7 @@ enum mofs05_errors mofs05_readFile(
 		file
 	);
 	
-	if (strcmp(magic, MOFS05_MAGIC) != 0) {
+	if (strncmp(magic, MOFS05_MAGIC, MOFS05_LENGTH_MAGIC) != 0) {
 		return MOFS05_ERROR_INCORRECT_FORMAT;
 	}
 	
@@ -162,7 +162,7 @@ mofs05File_t *mofs05_getFile(
 	unsigned int i;
 	
 	for (i = 0; i < mofs05->count; i++) {
-		if (strcmp(mofs05->i[i].name, filename) == 0) {
+		if (strncmp(mofs05->i[i].name, filename, MOFS05_LENGTH_NAME) == 0) {
 			return &mofs05->i[i];
 		}
 	}
