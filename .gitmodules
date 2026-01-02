@@ -1,0 +1,4 @@
+[submodule "src/libMOFS05-C"]
+	path = src/libMOFS05-C
+	url = https://github.com/StevenSYS/MOFS05
+	branch = mofs05-c
