@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.11)
 
-project(MOFS05 LANGUAGES C VERSION 1.0)
+project(MOFS05-C LANGUAGES C VERSION 1.0)
 
 set(
 	MOFS05_INCLUDE_DIRS
