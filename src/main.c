@@ -46,6 +46,7 @@ static void printHelp() {
 	return;
 }
 
+/* TODO: Rewrite this to make it easier to add new commands */
 static inline enum mofs05_errors loadArgs(int argc, char *argv[]) {
 	int i;
 	enum mofs05_errors ret = MOFS05_ERROR_NONE;
