@@ -30,6 +30,8 @@ extern "C" {
 #endif
 
 /* Macros */
+
+/* Print Error, if error then Return */
 #define MOFS05_PER(_ret, _error, _prefix) \
 	if (_error) { \
 		if (_error != MOFS05_ERROR_EXTERNAL) { \
@@ -42,6 +44,7 @@ extern "C" {
 		return _ret; \
 	}
 
+/* Print Error */
 #define MOFS05_PE(_error, _prefix) \
 	if (_error) { \
 		if (_error != MOFS05_ERROR_EXTERNAL) { \

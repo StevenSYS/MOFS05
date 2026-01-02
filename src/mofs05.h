@@ -30,7 +30,7 @@
 #include "internal/info.h"
 
 /* Macros */
-#define MOFS05_MAGIC MOFS05_NAME
+#define MOFS05_MAGIC "MOFS05"
 #define MOFS05_LENGTH_MAGIC 6
 #define MOFS05_LENGTH_NAME 100
 
