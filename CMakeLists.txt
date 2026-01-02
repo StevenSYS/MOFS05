@@ -32,6 +32,12 @@ endif()
 
 file(GLOB SOURCE_FILES "src/*.c")
 
+configure_file(
+	${CMAKE_CURRENT_SOURCE_DIR}/src/internal/info.h.in
+	${CMAKE_CURRENT_SOURCE_DIR}/src/internal/info.h
+	@ONLY
+)
+
 add_library(${PROJECT_NAME} ${SOURCE_FILES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY BUILD_RPATH ".")
 target_include_directories(${PROJECT_NAME} PRIVATE src)

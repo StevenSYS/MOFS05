@@ -22,7 +22,7 @@
 	SOFTWARE.
 */
 
-#include "errors.h"
+#include "internal/errors.h"
 
 const char *mofs05_errors(enum mofs05_errors error) {
 	switch (error) {

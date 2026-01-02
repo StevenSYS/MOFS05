@@ -1,0 +1,17 @@
+build*/
+src/mofs05_info.h
+
+# Executables
+*.exe
+*.app
+
+# Static Libraries
+*.lib
+*.a
+
+# Shared Libraries
+*.dll
+*.dylib
+*.so
+
+.DS_Store
