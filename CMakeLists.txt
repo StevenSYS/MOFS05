@@ -35,7 +35,8 @@ elseif(NOT WIN32 AND BUILD_USING_MSVCRT20)
 	message(FATAL_ERROR "To build using msvcrt20 you must be using a Windows C compiler")
 endif()
 
-file(GLOB SOURCE_FILES "src/*.c")
+file(GLOB MOFS05_SOURCE_FILES "src/*.c")
+file(GLOB MOFS05_HEADER_FILES "src/*.h")
 
 configure_file(
 	${CMAKE_CURRENT_SOURCE_DIR}/src/internal/info.h.in
@@ -43,6 +44,16 @@ configure_file(
 	@ONLY
 )
 
-add_library(${PROJECT_NAME} ${SOURCE_FILES})
+add_library(${PROJECT_NAME} ${MOFS05_SOURCE_FILES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY BUILD_RPATH ".")
 target_include_directories(${PROJECT_NAME} PRIVATE src)
+set_target_properties(
+	${PROJECT_NAME} PROPERTIES
+	PUBLIC_HEADER "${MOFS05_HEADER_FILES}"
+)
+
+install(
+	TARGETS ${PROJECT_NAME}
+	LIBRARY DESTINATION "lib"
+	PUBLIC_HEADER DESTINATION "include/${PROJECT_NAME}"
+)

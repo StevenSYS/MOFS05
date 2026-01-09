@@ -25,7 +25,7 @@
 #ifndef __MOFS05__
 #define __MOFS05__
 
-#include "internal/errors.h"
+#include "mofs05_errors.h"
 #include "internal/multistruct.h"
 #include "internal/info.h"
 
