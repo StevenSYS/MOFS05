@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.14)
 
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 set(CMAKE_BUILD_RPATH_USE_ORIGIN TRUE)
 
 project(MOFS05Tool LANGUAGES C VERSION 1.0)
 
-option(BUILD_SHARED_LIBS "Build the libraries as shared libraries" OFF)
+option(BUILD_SHARED_LIBS "Build the libraries as shared libraries" ON)
 option(BUILD_FOR_I586 "Build ${PROGRAM_NAME} for i586 (Intel Pentium) or higher" OFF)
 # Windows Compiler Options
 option(BUILD_USING_MSVCRT20 "Build ${PROGRAM_NAME} using msvcrt20 (Windows Compiler Only)" OFF)
