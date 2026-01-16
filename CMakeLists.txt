@@ -22,7 +22,6 @@ if(BUILD_FOR_I586)
 endif()
 
 if(WIN32)
-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wl,-subsystem,windows")
 	if(BUILD_USING_MSVCRT20)
 		set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mcrtdll=msvcrt20")
 	endif()
