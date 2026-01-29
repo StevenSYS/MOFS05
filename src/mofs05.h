@@ -29,6 +29,10 @@
 #include "internal/multistruct.h"
 #include "internal/info.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Macros */
 #define MOFS05_MAGIC "MOFS05"
 #define MOFS05_LENGTH_MAGIC 6
@@ -68,5 +72,9 @@ enum mofs05_errors mofs05_extractFile(
 enum mofs05_errors mofs05_extract(
 	const mofs05_t *mofs05
 );
+
+#ifdef __cplusplus
+};
+#endif
 
 #endif
