@@ -137,7 +137,7 @@ enum mofs05_errors mofs05_readFile(
 		);
 		
 		mofs05->i[i].data = malloc(
-			mofs05->i[i].size
+			mofs05->i[i].size + 1
 		);
 		
 		fread(
@@ -146,6 +146,8 @@ enum mofs05_errors mofs05_readFile(
 			mofs05->i[i].size,
 			file
 		);
+		
+		mofs05->i[i].data[mofs05->i[i].size] = 0;
 		
 		for (j = 0; j < mofs05->i[i].size; j++) {
 			((char *)mofs05->i[i].data)[j] -= j;
