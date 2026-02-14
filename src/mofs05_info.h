@@ -22,33 +22,19 @@
 	SOFTWARE.
 */
 
-#ifndef __MULTISTRUCT__
-#define __MULTISTRUCT__
+#ifndef __MOFS05_INFO__
+#define __MOFS05_INFO__
 
-#include "multistructConfig.h"
+/* - MOFS05 - */
+#ifndef MOFS05_PRE_RELEASE
+	#define MOFS05_PRE_RELEASE 1
+#endif
 
-/* Macros */
-#define MULTISTRUCT(_name, _type) \
-	typedef struct { \
-		_type *i; \
-		unsigned int count; \
-	} _name;
-
-#define MULTISTRUCT_INIT(_type, _var) \
-	if (_var.count) { \
-		_var.i = (_type *)MULTISTRUCT_MALLOC( \
-			sizeof(_type[_var.count]) \
-		); \
-		if (_var.i == NULL) { \
-			return MOFS05_ERROR_ALLOCATE; \
-		} \
-	}
-
-#define MULTISTRUCT_UNINIT(_var) \
-	if (_var.i != NULL) { \
-		MULTISTRUCT_FREE(_var.i); \
-		_var.i = NULL; \
-	} \
-	_var.count = 0;
+#define MOFS05_NAME "MOFS05-C"
+#if MOFS05_PRE_RELEASE
+	#define MOFS05_VERSION "1.0pre"
+#else
+	#define MOFS05_VERSION "1.0"
+#endif
 
 #endif

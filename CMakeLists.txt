@@ -39,8 +39,8 @@ file(GLOB MOFS05_SOURCE_FILES "src/*.c")
 file(GLOB MOFS05_HEADER_FILES "src/*.h")
 
 configure_file(
-	${CMAKE_CURRENT_SOURCE_DIR}/src/internal/info.h.in
-	${CMAKE_CURRENT_SOURCE_DIR}/src/internal/info.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/mofs05_info.h.in
+	${CMAKE_CURRENT_SOURCE_DIR}/src/mofs05_info.h
 	@ONLY
 )
 

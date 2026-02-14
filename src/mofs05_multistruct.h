@@ -22,59 +22,33 @@
 	SOFTWARE.
 */
 
-#ifndef __MOFS05__
-#define __MOFS05__
+#ifndef __MULTISTRUCT__
+#define __MULTISTRUCT__
 
-#include "mofs05_errors.h"
-#include "mofs05_multistruct.h"
-#include "mofs05_info.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "mofs05_multistructConfig.h"
 
 /* Macros */
-#define MOFS05_MAGIC "MOFS05"
-#define MOFS05_LENGTH_MAGIC 6
-#define MOFS05_LENGTH_NAME 100
+#define MULTISTRUCT(_name, _type) \
+	typedef struct { \
+		_type *i; \
+		unsigned int count; \
+	} _name;
 
-#define MOFS05_PREFIX MOFS05_NAME
+#define MULTISTRUCT_INIT(_type, _var) \
+	if (_var.count) { \
+		_var.i = (_type *)MULTISTRUCT_MALLOC( \
+			sizeof(_type[_var.count]) \
+		); \
+		if (_var.i == NULL) { \
+			return MOFS05_ERROR_ALLOCATE; \
+		} \
+	}
 
-/* Structs */
-typedef struct {
-	char name[MOFS05_LENGTH_NAME];
-	unsigned int size;
-	void *data;
-} mofs05File_t;
-
-MULTISTRUCT(mofs05_t, mofs05File_t);
-
-/* Functions */
-enum mofs05_errors mofs05_writeFile(
-	const char *filename,
-	const mofs05_t *mofs05
-);
-
-enum mofs05_errors mofs05_readFile(
-	const char *filename,
-	mofs05_t *mofs05
-);
-
-mofs05File_t *mofs05_getFile(
-	const mofs05_t *mofs05,
-	const char *filename
-);
-
-enum mofs05_errors mofs05_extractFile(
-	const mofs05File_t *mofs05File
-);
-
-enum mofs05_errors mofs05_extract(
-	const mofs05_t *mofs05
-);
-
-#ifdef __cplusplus
-};
-#endif
+#define MULTISTRUCT_UNINIT(_var) \
+	if (_var.i != NULL) { \
+		MULTISTRUCT_FREE(_var.i); \
+		_var.i = NULL; \
+	} \
+	_var.count = 0;
 
 #endif
