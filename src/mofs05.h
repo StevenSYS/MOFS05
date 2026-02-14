@@ -44,7 +44,7 @@ extern "C" {
 typedef struct {
 	char name[MOFS05_LENGTH_NAME];
 	unsigned int size;
-	void *data;
+	char *data;
 } mofs05File_t;
 
 MULTISTRUCT(mofs05_t, mofs05File_t);
