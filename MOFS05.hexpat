@@ -1,6 +1,6 @@
 #pragma author StevenSYS
 #pragma description MOFS05
-#pragma magic [ 4D 4F 46 53 30 35 31 ] @ 0x00
+#pragma magic [ 4D 4F 46 53 30 35 ] @ 0x00
 
 #pragma endian little
 
